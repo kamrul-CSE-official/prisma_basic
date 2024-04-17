@@ -3,7 +3,7 @@ import { categoryServices } from "./category.service";
 
 const inserIntoDB = async (req: Request, res: Response) => {
   try {
-    const result = categoryServices.insertIntoDB(req.body);
+    const result = await categoryServices.insertIntoDB(req.body);
 
     res.send({
       succcess: true,
