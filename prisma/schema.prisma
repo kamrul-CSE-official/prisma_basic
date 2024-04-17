@@ -17,5 +17,39 @@ model User {
   id Int @id @default(autoincrement())
   email String @unique
   name String
-  age Int?
+  role String
+  profile Profile?
+  posts Post[]
+
+  @@map("users")
+}
+
+model Profile {
+  id Int @id @default(autoincrement())
+  bio String
+  userId Int @unique
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("profiles")
+}
+
+model Catagory {
+    id Int @id @default(autoincrement())
+    name String
+    posts Post[]
+
+    @@map("catagorys")
+}
+
+model Post {
+  id Int @id @default(autoincrement())
+  title String
+  authorId Int
+  author User @relation(fields: [authorId], references: [id])
+  categoryId Int
+  category Catagory @relation(fields: [categoryId], references: [id])
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  @@map("posts")
 }
