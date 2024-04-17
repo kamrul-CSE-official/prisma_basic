@@ -1,8 +1,8 @@
 import express, { Application } from "express";
 import cors from "cors";
-import { UserRoutes } from "./modeules/users/user.route";
-import { categoryRoutes } from "./modeules/category/category.route";
-import { postRoutes } from "./modeules/post/post.routes";
+import { UserRoutes } from "./modules/users/user.route";
+import { categoryRoutes } from "./modules/category/category.route";
+import { postRoutes } from "./modules/post/post.routes";
 
 const app: Application = express();
 app.use(express.json());
